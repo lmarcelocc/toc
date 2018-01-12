@@ -1,0 +1,22 @@
+/*styles for sidenav content only*/
+mat-sidenav {
+  min-width: 238px;
+  width: 48vw;
+  max-width: 290px;
+}
+
+.site-logo-container {
+    padding: 7px 14px 4px 14px;
+}
+
+.site-logo-container img {
+    max-width: 260px;;
+}
+
+.toolbar-icon {
+    padding: 0 14px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}

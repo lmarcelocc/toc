@@ -1,0 +1,24 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+        "name": "MyTool"
+    },
+    "apps": [
+        {
+            "root": "src",
+            "outDir": "dist",
+            "assets": [
+                "assets",
+                "icon/favicon.ico"
+            ],
+            "index": "index.html",
+            "main": "main.browser.ts",
+            "tsconfig": "tsconfig.json",
+            "prefix": "app",
+            "styles": [
+                "styles.css"
+            ],
+            "scripts": []
+        }
+    ]
+}

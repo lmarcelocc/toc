@@ -1,0 +1,107 @@
+    <mat-card class="registerCard">
+
+
+      <mat-card-content>
+
+        <form *ngIf="!submitted" [formGroup]="registerUserForm" (ngSubmit)="onSubmit(registerUserForm.value)" layout="column">
+
+            <mat-form-field class="full-width">
+
+              <span matPrefix><mat-icon>mail_outline</mat-icon></span>
+              <input matInput formControlName="email" required placeholder="example@example.com">
+
+              <mat-error *ngIf="email.invalid && email.dirty">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="email.hasError('required') && (email.dirty || email.touched)">
+                  Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+
+              <input matInput formControlName="first_name" required placeholder="Firstname">
+
+              <mat-error *ngIf="first_name.hasError('minlength') && (first_name.dirty || first_name.touched)">
+                First name should have, at least, {{ first_name.errors.minlength.requiredLength }} characters.
+              </mat-error>
+              <mat-error *ngIf="first_name.hasError('required') && (first_name.dirty || first_name.touched)">
+                  First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+
+              <input matInput formControlName="last_name" required placeholder="Lastname">
+
+              <mat-error *ngIf="last_name.hasError('minlength') && (last_name.dirty || last_name.touched)">
+                Last name should have, at least, {{ last_name.errors.minlength.requiredLength }} characters.
+              </mat-error>
+              <mat-error *ngIf="last_name.hasError('required') && (last_name.dirty || last_name.touched)">
+                  Last name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+
+              <input matInput formControlName="company" required placeholder="Company name">
+
+              <mat-error *ngIf="company.hasError('minlength') && (company.dirty || company.touched)">
+                Company name should have, at least, {{ company.errors.minlength.requiredLength }} characters.
+              </mat-error>
+              <mat-error *ngIf="company.hasError('required') && (company.dirty || company.touched)">
+                  Company name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+
+          <mat-form-field class="full-width">
+
+            <span matPrefix><mat-icon>lock_open</mat-icon></span>
+            <input matInput formControlName="password" required type="password" placeholder="Password">
+
+            <mat-error *ngIf="password.hasError('minlength') && (password.dirty || password.touched)">
+              Password should have, at least, {{ password.errors.minlength.requiredLength }} characters.
+            </mat-error>
+            <mat-error *ngIf="password.hasError('required') && (password.dirty || password.touched)">
+                Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+
+            <span matPrefix><mat-icon>lock_open</mat-icon></span>
+            <input matInput
+                   formControlName="password_confirmation"
+                   required
+                   type="password"
+                   placeholder="Password confirmation">
+
+            <mat-error *ngIf="password_confirmation.hasError('equalTo') && (password_confirmation.dirty || password_confirmation.touched)">
+              The passwords doesn't match.
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-card-actions align="end" *ngIf="!submitted">
+
+              <a mat-button routerLink="/login">LOGIN</a>
+
+              <div fxFlex></div>
+
+              <button
+                type="submit"
+                [disabled]="!registerUserForm.valid"
+                mat-raised-button
+                color="primary">
+                  REGISTER
+              </button>
+
+          </mat-card-actions>
+
+        </form>
+
+        <mat-progress-spinner *ngIf="submitted" mode="indeterminate"></mat-progress-spinner>
+      </mat-card-content>
+
+    </mat-card>

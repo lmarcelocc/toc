@@ -1,0 +1,52 @@
+    <mat-card class="loginCard">
+
+
+      <mat-card-content>
+
+        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" layout="column">
+
+            <mat-form-field class="full-width">
+
+              <span matPrefix><mat-icon>mail_outline</mat-icon></span>
+              <input matInput formControlName="email" required placeholder="example@example.com">
+
+            </mat-form-field>
+
+
+
+          <mat-form-field class="full-width">
+
+            <span matPrefix><mat-icon>lock_open</mat-icon></span>
+            <input matInput formControlName="password" required type="password" placeholder="password">
+
+          </mat-form-field>
+
+          <mat-card-actions *ngIf="!submitted">
+
+              <mat-grid-list>
+
+                  <a mat-button routerLink="/password/reset">FORGOT PASSWORD?</a>
+
+                  <div fxFlex></div>
+
+                  <mat-grid-tile>
+                      <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">
+                          LOGIN
+                      </button>
+                  </mat-grid-tile>
+
+              </mat-grid-list>
+
+          </mat-card-actions>
+
+          <mat-card-actions *ngIf="!submitted">
+              <a mat-button routerLink="/register">REGISTER</a>
+          </mat-card-actions>
+
+
+        </form>
+
+        <mat-progress-spinner *ngIf="submitted" mode="indeterminate"></mat-progress-spinner>
+      </mat-card-content>
+
+    </mat-card>

@@ -1,0 +1,86 @@
+/*styles for dashboard content only*/
+/*styles for context content only*/
+.tab-content {
+    padding: 20px;
+  }
+
+  .question-content {
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  .question-subtitle {
+    border-bottom: 1px solid #656565;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .question-context {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .question {
+    font-size: 14px;
+  }
+
+  .answers-content {
+    margin: 5px 0 0 15px;
+  }
+
+  .light-grey {
+    color: lightgrey;
+  }
+
+  .mat-radio-button {
+    margin: 5px 0;
+  }
+
+  .contents-table {
+    /* Do not use margin here. It will be overwritten. */
+    position: absolute;
+    padding: 2rem;
+  }
+
+  .contents-table.sticky {
+    position: fixed;
+    top: 0;
+  }
+
+  .contents-table {
+    list-style: none;
+    margin: 0;
+  }
+
+  .contents-table a {
+    border-radius: 4px;
+    display: block;
+    padding: 0.3rem 0.6rem;
+    color: #444;
+    text-decoration: none;
+  }
+
+  .contents-table a.active {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .columnify > .table-column {
+    flex: 0 1 auto;
+    width: 220px;
+  }
+
+  /* Columnify https://stackoverflow.com/a/47220287 **/
+  .columnify {
+    display: flex;
+  }
+
+  .columnify > * {
+    flex: 1;
+  }
+
+  .columnify > *:not(:first-child) {
+    margin-left: 2rem;
+  }
+

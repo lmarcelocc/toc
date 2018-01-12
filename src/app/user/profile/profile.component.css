@@ -1,0 +1,14 @@
+.profile-form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.profile-form-container mat-form-field {
+    margin: 1rem;
+}
+
+/* .profile-form-container > mat-form-field {
+    margin: 5px;
+    flex: 1 1 auto;
+} */

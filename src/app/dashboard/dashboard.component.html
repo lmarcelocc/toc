@@ -1,0 +1,91 @@
+<div fxLayout="row" class="title">
+  <div>{{ title }}</div>
+</div>
+
+<mat-tab-group>
+
+  <mat-tab *ngFor="let category of categories">
+
+    <ng-template mat-tab-label>
+      {{ category.name }}
+    </ng-template>
+
+    <div fxLayout="row" class="columnify" contents>
+
+      <div>
+
+        <mat-progress-spinner *ngIf="!category.sub_categories"></mat-progress-spinner>
+
+        <div fxFlex="80" *ngIf="category.sub_categories" class="tab-content">
+
+          <div
+            *ngFor="let subCategory of category.sub_categories">
+
+            <div [contentsSection]="subCategory.name | slugify">
+
+              <div class="question-subtitle">
+                {{ subCategory.name }}
+              </div>
+
+              <div class="question-content"
+                id="q-{{ question.id }}"
+                *ngFor="let question of subCategory.questions">
+
+                <div>
+
+                  <div fxLayout="row">
+
+                    <div flex="95" fxFill>
+                      <div *ngIf="question.context" class="question-context">
+                        {{ question.context }}
+                      </div>
+
+                      <div class="question" flex>
+                        {{ question.question }}
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div
+                    class="answers-content">
+
+                    <mat-radio-group name="{{question.id}}">
+                      <div *ngFor="let answer of question.answers">
+
+                        <mat-radio-button value="{{answer.id}}">
+                          {{ answer.answer }}
+                        </mat-radio-button>
+
+                      </div>
+                    </mat-radio-group>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="table-column" fxFlex>
+
+          <ul class="contents-table" contentsTable>
+
+            <li *ngFor="let _subCategory of category.sub_categories">
+
+              <a [href]="buildLinkWithAnchor(_subCategory.name)" contentsLink pageScroll>
+                {{ _subCategory.name }}
+              </a>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
