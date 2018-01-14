@@ -12,7 +12,6 @@ export const ROUTES: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
     data: {
       title: 'Dashboard'
     }
@@ -48,7 +47,6 @@ export const ROUTES: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
     data: {
       title: 'Dashboard'
     }
