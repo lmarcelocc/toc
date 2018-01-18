@@ -10,7 +10,7 @@
       {{ category.name }}
     </ng-template>
 
-    <div fxLayout="row" class="columnify" contents>
+    <div fxLayout="row" class="columnify" contents [scrollingView]="document.querySelector('.mat-drawer-content')">
 
       <div>
 

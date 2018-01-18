@@ -30,6 +30,7 @@ import { SlugifyPipe } from '../_pipes';
 export class DashboardComponent implements OnInit {
 
   public title = 'Hello and thank you!';
+  public document = document;
 
   public categories;
 
@@ -2991,7 +2992,7 @@ export class DashboardComponent implements OnInit {
 
   public buildLinkWithAnchor(anchor: string): string {
 
-    console.log('#' + new SlugifyPipe().transform(anchor));
+    // console.log('#' + new SlugifyPipe().transform(anchor));
     return '#' + new SlugifyPipe().transform(anchor);
   }
 
